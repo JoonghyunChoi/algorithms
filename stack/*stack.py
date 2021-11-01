@@ -1,3 +1,19 @@
+# 배열을 이용한 스택
+stack = []
+def push1(item):
+    stack.append(item)
+
+def pop1():
+    if len(stack) != 0:
+        item = stack.pop(-1)
+        return item
+
+def peek1():
+    if len(stack) != 0:
+        return stack[-1]
+
+
+# 단순연결리스트를 이용한 스택
 class Node:
     def __init__(self, item, next):
         self.item = item
@@ -6,13 +22,13 @@ class Node:
 top = None
 size = 0
 
-def push(item):
+def push2(item):
     global top
     global size
     top = Node(item, top)
     size += 1
 
-def pop():
+def pop2():
     global top
     global size
     if size != 0:
@@ -21,7 +37,7 @@ def pop():
         size -= 1
         return topItem
 
-def peek():
+def peek2():
     if size != 0:
         return top.item
 

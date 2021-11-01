@@ -6,26 +6,26 @@ class Chaining:
             self.next = next
 
     def __init__(self, size):
-        self.m = size
-        self.T = [None] * size
+        self.size = size
+        self.hashTable = [None] * size
 
     def hash(self, key):
-        return key % self.m
+        return key % self.size
 
     def put(self, key, item):
-        i = self.hash(key)
-        p = self.T[i]
+        h = self.hash(key)
+        p = self.hashTable[h]
         while p != None:
             if key == p.key:
                 p.item = item
                 return
             p = p.next
 
-        self.T[i] = self.Node(key, item, self.T[i])
+        self.hashTable[h] = self.Node(key, item, self.hashTable[h])
 
     def get(self, key):
-        i = self.hash(key)
-        p = self.T[i]
+        h = self.hash(key)
+        p = self.hashTable[h]
         while p != None:
             if key == p.key:
                 return p.item
@@ -35,10 +35,9 @@ class Chaining:
   # delete()
 
     def print(self):
-        for i in range(self.m):
+        for i in range(self.size):
             print(i)
-
-            p = self.T[i]
+            p = self.hashTable[i]
             while p != None:
                 print(p.key, p.item, end=' ')
                 p = p.next

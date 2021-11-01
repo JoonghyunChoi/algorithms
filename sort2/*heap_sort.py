@@ -1,36 +1,35 @@
 import heapq
 
 # 최대힙을 이용한 힙정렬
-a = []
-def heapSort(a):
-    createHeap(a)
-    print(a)
-    N = len(a) - 1
+n = []
+def heapSort(n):
+    size = len(n) - 1
+    createHeap(n)
 
-    for i in range(N):
-        a[1], a[N] = a[N], a[1]
-        downheap(1, N-1)
-        N -= 1
+    for i in range(size):
+        n[1], n[size] = n[size], n[1]
+        downheap(1, size-1)
+        size -= 1
 
-def createHeap(a):
-    N = len(a) - 1
-    for i in range(N//2, 0, -1):
-        downheap(i, N)
+def createHeap(n):
+    size = len(n) - 1
+    for i in range(size//2, 0, -1):
+        downheap(i, size)
 
-def downheap(i, size):
-    while i <= size//2:
-        k = 2*i
-        if k < size and a[k] < a[k+1]:
-            k += 1
+def downheap(p, size):
+    while p <= size//2:
+        c = 2*p
 
-        if a[i] >= a[k]:
+        if c < size and n[c+1] > n[c]:
+            c += 1
+        if n[p] >= n[c]:
             break
-        a[i], a[k] = a[k], a[i]
-        i = k
+        n[p], n[c] = n[c], n[p]
+        p = c
 
 
 # 최소힙을 이용한 힙정렬
-heapq.heapify(a)
+heapq.heapify(n)
 s = []
-while a:
-    s.append(heapq.heappop(a))
+while n:
+    s.append(heapq.heappop(n))

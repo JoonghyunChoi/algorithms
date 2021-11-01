@@ -25,13 +25,13 @@ class Dlist:
         prev.next = n
         self.size += 1
 
-    def delete(self, x):
+    def delete(self, n):
         if self.size == 0:
             return -1
-        p = x.prev
-        n = x.next
-        p.next = n
-        n.prev = p
+        p = n.prev
+        t = n.next
+        p.next = t
+        t.prev = p
         self.size -= 1
 
     def getSize(self):

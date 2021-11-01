@@ -1,3 +1,20 @@
+# 배열을 이용한 큐
+queue = []
+def add1(item):
+    queue.append(item)
+
+def remove1():
+    if len(queue) != 0:
+        item = queue.pop(0)
+        return item
+
+def printQueue1():
+    for i in range(len(queue)):
+        print(queue[i], end=' ')
+    print()
+
+
+# 단순연결리스트를 이용한 큐
 class Node:
     def __init__(self, item, next):
         self.item = item
@@ -7,20 +24,20 @@ front = None
 rear = None
 size = 0
 
-def add(item):
+def add2(item):
     global front
     global rear
     global size
 
-    node = Node(item, None)
+    n = Node(item, None)
     if size == 0:
-        front = node
+        front = n
     else:
-        rear.next = node
-    rear = node
+        rear.next = n
+    rear = n
     size += 1
 
-def remove():
+def remove2():
     global front
     global rear
     global size
@@ -31,7 +48,7 @@ def remove():
         if size == 0:
             rear = None
 
-def printQueue():
+def printQueue2():
     p = front
     while p:
         if p.next != None:

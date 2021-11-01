@@ -8,7 +8,7 @@ class Slist:
         self.head = None
         self.size = 0
 
-    def insertFront(self, item):
+    def insertBefore(self, item):
         if self.size == 0:
             self.head = Node(item, None)
         else:
@@ -19,7 +19,7 @@ class Slist:
         prev.next = Node(item, prev.next)
         self.size += 1
 
-    def deleteFront(self):
+    def deleteBefore(self):
         if self.size == 0:
             return -1
         else:

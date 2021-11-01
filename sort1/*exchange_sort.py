@@ -1,5 +1,5 @@
-def exchangeSort(a):
-    for i in range(0, len(a)-1):
-        for j in range(i+1, len(a)):
-            if a[i] > a[j]:
-                a[i], a[j] = a[j], a[i]
+def exchangeSort(n):
+    for i in range(0, len(n)-1):
+        for j in range(i+1, len(n)):
+            if n[i] > n[j]:
+                n[i], n[j] = n[j], n[i]

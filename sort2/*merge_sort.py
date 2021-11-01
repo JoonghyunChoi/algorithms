@@ -1,28 +1,28 @@
-def mergeSort(a, b, low, high):
+def mergeSort(n, s, low, high):
     if high <= low:
         return
-
     mid = low + (high - low) // 2
-    mergeSort(a, b, low, mid)
-    mergeSort(a, b, mid+1, high)
-    merge(a, b, low, mid, high)
 
-def merge(a, b, low, mid, high):
+    mergeSort(n, s, low, mid)
+    mergeSort(n, s, mid+1, high)
+    merge(n, s, low, mid, high)
+
+def merge(n, s, low, mid, high):
     i = low
     j = mid+1
     for k in range(low, high+1):
         if (i <= mid and j <= high):
-            if a[j] < a[i]:
-                b[k] = a[j]
-                j += 1
-            elif a[j] >= a[i]:
-                b[k] = a[i]
+            if n[i] <= n[j]:
+                s[k] = n[i]
                 i += 1
+            elif n[j] < n[i]:
+                s[k] = n[j]
+                j += 1
         elif i > mid:
-            b[k] = a[j]
+            s[k] = n[j]
             j += 1
         elif j > high:
-            b[k] = a[i]
+            s[k] = n[i]
             i += 1
     for k in range(low, high+1):
-        a[k] = b[k]
+        n[k] = s[k]

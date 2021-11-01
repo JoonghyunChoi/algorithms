@@ -27,12 +27,11 @@ class Clist:
     def delete(self):
         if self.size == 0:
             return -1
-
-        x = self.last.next
+        n = self.last.next
         if self.size == 1:
             self.last = None
         else:
-            self.last.next = x.next
+            self.last.next = n.next
         self.size -= 1
 
     def getSize(self):

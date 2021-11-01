@@ -1,7 +1,7 @@
-def selectionSort(a):
-    for i in range(0, len(a)-1):
+def selectionSort(n):
+    for i in range(0, len(n)-1):
         min = i
-        for j in range(i, len(a)):
-            if a[min] > a[j]:
+        for j in range(i+1, len(n)):
+            if n[min] > n[j]:
                 min = j
-        a[i], a[min] = a[min], a[i]
+        n[i], n[min] = n[min], n[i]

@@ -1,44 +1,44 @@
 class LinearProbing:
     def __init__(self, size):
-        self.m = size
-        self.T = [None] * size
-        self.D = [None] * size
+        self.size = size
+        self.hashTable = [None] * size
+        self.dataTable = [None] * size
 
     def hash(self, key):
-        return key % self.m
+        return key % self.size
 
     def put(self, key, item):
-        i0 = self.hash(key)
-        i = i0
+        h = self.hash(key)
+        i = h
         j = 0
         while True:
-            if self.T[i] == None:
-                self.T[i] = key
-                self.D[i] = item
+            if self.hashTable[i] == None:
+                self.hashTable[i] = key
+                self.dataTable[i] = item
                 return
-            if self.T[i] == key:
-                self.D[i] = item
+            if self.hashTable[i] == key:
+                self.dataTable[i] = item
                 return
             j += 1
-            i = (i0 + j) % self.m
-            if i == i0:
+            i = (h + j) % self.size
+            if i == h:
                 break
 
     def get(self, key):
-        i0 = self.hash(key)
-        i = i0
+        h = self.hash(key)
+        i = h
         j = 0
-        while self.T[i] != None:
-            if self.T[i] == key:
-                return self.D[i]
+        while self.hashTable[i] != None:
+            if self.hashTable[i] == key:
+                return self.dataTable[i]
             j += 1
-            i = (i0 + j) % self.m
-            if i == i0:
+            i = (h + j) % self.size
+            if i == h:
                 return None
         return None
 
   # delete()
 
     def print(self):
-        for i in range(self.m):
-            print(i, self.T[i])
+        for i in range(self.size):
+            print(i, self.hashTable[i])
