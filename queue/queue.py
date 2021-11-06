@@ -1,14 +1,14 @@
 # 배열을 이용한 큐
 queue = []
-def add1(item):
+def add(item):
     queue.append(item)
 
-def remove1():
+def remove():
     if len(queue) != 0:
         item = queue.pop(0)
         return item
 
-def printQueue1():
+def printQueue():
     for i in range(len(queue)):
         print(queue[i], end=' ')
     print()
@@ -24,7 +24,7 @@ front = None
 rear = None
 size = 0
 
-def add2(item):
+def add(item):
     global front
     global rear
     global size
@@ -37,7 +37,7 @@ def add2(item):
     rear = n
     size += 1
 
-def remove2():
+def remove():
     global front
     global rear
     global size
@@ -48,7 +48,7 @@ def remove2():
         if size == 0:
             rear = None
 
-def printQueue2():
+def printQueue():
     p = front
     while p:
         if p.next != None:

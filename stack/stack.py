@@ -1,14 +1,14 @@
 # 배열을 이용한 스택
 stack = []
-def push1(item):
+def push(item):
     stack.append(item)
 
-def pop1():
+def pop():
     if len(stack) != 0:
         item = stack.pop(-1)
         return item
 
-def peek1():
+def peek():
     if len(stack) != 0:
         return stack[-1]
 
@@ -22,13 +22,13 @@ class Node:
 top = None
 size = 0
 
-def push2(item):
+def push(item):
     global top
     global size
     top = Node(item, top)
     size += 1
 
-def pop2():
+def pop():
     global top
     global size
     if size != 0:
@@ -37,7 +37,7 @@ def pop2():
         size -= 1
         return topItem
 
-def peek2():
+def peek():
     if size != 0:
         return top.item
 
