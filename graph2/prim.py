@@ -1,12 +1,12 @@
 import sys
-G = []
-N = len(G)
+graph = []
+N = len(graph)
 
 def prim(s):
     visited = [False] * N
     d = [sys.maxsize] * N
     d[s] = 0
-    previous = {s: 0}
+    previous = {s: s}
 
     for k in range(N):
         m = -1
@@ -17,8 +17,8 @@ def prim(s):
                 m = i
         visited[m] = True
 
-        for v, w in list(G[m]):
-            if not visited[v]:
-                if w < d[v]:
-                    d[v] = w
-                    previous[v] = m
+        for u, w in list(graph[m]):
+            if not visited[u]:
+                if d[u] > w:
+                    d[u] = w
+                    previous[u] = m

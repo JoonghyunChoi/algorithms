@@ -2,12 +2,12 @@
 adj = []
 N = len(adj)
 visited = [False] * N
-def dfs(v):
-    visited[v] = True
+def dfs(u):
+    visited[u] = True
 
-    for u in adj[v]:
-        if not visited[u]:
-            dfs(u)
+    for v in adj[u]:
+        if not visited[v]:
+            dfs(v)
 
 for i in range(N):
     if not visited[i]:
@@ -15,17 +15,17 @@ for i in range(N):
 
 
 # 스택을 이용한 DFS
-def dfs(v):
+def dfs(u):
     stack = []
-    visited[v] = True
-    stack.append(v)
+    visited[u] = True
+    stack.append(u)
 
     while stack:
-        v = stack.pop()
-        for u in adj[v]:
-            if not visited[u]:
-                visited[u] = True
-                stack.append(u)
+        u = stack.pop()
+        for v in adj[u]:
+            if not visited[v]:
+                visited[v] = True
+                stack.append(v)
 
 for i in range(N):
     if not visited[i]:

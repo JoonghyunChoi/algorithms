@@ -1,12 +1,25 @@
-G = []
-G.sort(key=lambda x: x[2])
+graph = []
+graph.sort(key=lambda x: x[2])
 mst = []
 p = []
-level = []
+N = 0
 
-for i in range(len(p)):
+def kruskal():
+    edges = 0
+    cost = 0
+
+    while True:
+        if edges == N-1:
+            break
+        u, v, w = graph.pop(0)
+        if find(u) != find(v):
+            union(u, v)
+            mst.append((u, v))
+            cost += w
+            edges += 1
+
+for i in range(N):
     p[i] = i
-    level[i] = 1
 
 def find(u):
     if u != p[u]:
@@ -14,18 +27,6 @@ def find(u):
     return p[u]
 
 def union(u, v):
-    u = find(u)
-    v = find(v)
-
-    if level[u] > level[v]:
-        u, v = v, u
-    p[u] = v
-
-    if level[u] == level[v]:
-        level[v] += 1
-
-while len(mst) < len(G)-1:
-    u, v, w = G.pop(0)
-    if find(u) != find(v):
-        union(u, v)
-        mst.append((u, v, w))
+    root1 = find(u)
+    root2 = find(v)
+    p[root2] = root1

@@ -1,9 +1,8 @@
 p = []
-level = []
+N = 0
 
-for i in range(len(p)):
+for i in range(N):
     p[i] = i
-    level[i] = 1
 
 def find(u):
     if u != p[u]:
@@ -11,12 +10,6 @@ def find(u):
     return p[u]
 
 def union(u, v):
-    u = find(u)
-    v = find(v)
-
-    if level[u] > level[v]:
-        u, v = v, u
-    p[u] = v
-
-    if level[u] == level[v]:
-        level[v] += 1
+    root1 = find(u)
+    root2 = find(v)
+    p[root2] = root1

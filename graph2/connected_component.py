@@ -6,6 +6,7 @@ CC = []
 def dfs(u):
     visited[u] = True
     cc.append(u)
+
     for v in adj[u]:
         if not visited[v]:
             dfs(v)

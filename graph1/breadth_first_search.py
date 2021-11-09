@@ -5,19 +5,19 @@ visited = [False] * N
 distance = {}
 previous = {}
 
-def bfs(v):
+def bfs(u):
     queue = []
-    visited[v] = True
-    queue.append(v)
+    visited[u] = True
+    queue.append(u)
 
     while queue:
-        v = queue.pop(0)
-        for u in adj[v]:
-            if not visited[u]:
-                visited[u] = True
-                distance[u] = distance[v] + 1
-                previous[u] = v
-                queue.append(u)
+        u = queue.pop(0)
+        for v in adj[u]:
+            if not visited[v]:
+                visited[v] = True
+                distance[v] = distance[u] + 1
+                previous[v] = u
+                queue.append(v)
 
 for i in range(N):
     if not visited[i]:
@@ -31,13 +31,13 @@ def bfs(q):
     if not q:
         return
 
-    v = q.pop(0)
-    for u in adj[v]:
-        if not visited[u]:
-            visited[u] = True
-            distance[u] = distance[v] + 1
-            previous[u] = v
-            q.append(u)
+    u = q.pop(0)
+    for v in adj[u]:
+        if not visited[v]:
+            visited[v] = True
+            distance[v] = distance[u] + 1
+            previous[v] = u
+            q.append(v)
     bfs(q)
 
 q = []

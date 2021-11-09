@@ -5,6 +5,7 @@ order = []
 
 def dfs(u):
     visited[u] = True
+
     for v in adj[u]:
         if not visited[v]:
             dfs(v)
