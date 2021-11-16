@@ -1,6 +1,5 @@
 def recursion(n):
     base = 1
-
     if n == base:
         return n
     n += 0
