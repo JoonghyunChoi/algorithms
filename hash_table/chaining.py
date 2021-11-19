@@ -9,6 +9,7 @@ class Chaining:
         self.size = size
         self.hashTable = [None] * size
 
+
     def hash(self, key):
         return key % self.size
 
@@ -20,7 +21,6 @@ class Chaining:
                 p.item = item
                 return
             p = p.next
-
         self.hashTable[h] = self.Node(key, item, self.hashTable[h])
 
     def get(self, key):
@@ -31,6 +31,7 @@ class Chaining:
                 return p.item
             p = p.next
         return None
+
 
   # delete()
 

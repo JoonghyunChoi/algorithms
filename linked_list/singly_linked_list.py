@@ -8,6 +8,7 @@ class Slist:
         self.head = None
         self.size = 0
 
+
     def insertBefore(self, item):
         if self.size == 0:
             self.head = Node(item, None)
@@ -18,6 +19,7 @@ class Slist:
     def insertAfter(self, item, prev):
         prev.next = Node(item, prev.next)
         self.size += 1
+
 
     def deleteBefore(self):
         if self.size == 0:
@@ -33,6 +35,7 @@ class Slist:
         prev.next = t.next
         self.size -= 1
 
+
     def search(self, target):
         p = self.head
         for k in range(self.size):
@@ -43,6 +46,7 @@ class Slist:
 
     def getSize(self):
         return self.size
+
 
     def print(self):
         p = self.head

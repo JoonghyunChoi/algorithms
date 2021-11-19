@@ -4,6 +4,7 @@ class QuadraticProbing:
         self.hashTable = [None] * size
         self.dataTable = [None] * size
 
+
     def hash(self, key):
         return key % self.size
 
@@ -34,6 +35,7 @@ class QuadraticProbing:
             i = (h + j*j) % self.size
             j += 1
         return None
+
 
   # delete()
 

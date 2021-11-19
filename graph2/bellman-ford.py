@@ -1,9 +1,7 @@
 import sys
 
-graph = []
-N = len(graph)
-
-def bellmanFord(s):
+def bellmanFord(s, graph):
+    N = len(graph)
     d = [sys.maxsize] * N
     d[s] = 0
     previous = {s: s}

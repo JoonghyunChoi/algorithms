@@ -1,7 +1,7 @@
+graph = []
 p = []
-N = 0
 
-for i in range(N):
+for i in range(len(graph)):
     p[i] = i
 
 def find(u):

@@ -25,9 +25,7 @@ rear = None
 size = 0
 
 def add(item):
-    global front
-    global rear
-    global size
+    global front, rear, size
 
     n = Node(item, None)
     if size == 0:
@@ -38,9 +36,7 @@ def add(item):
     size += 1
 
 def remove():
-    global front
-    global rear
-    global size
+    global front, rear, size
 
     if size != 0:
         front = front.next

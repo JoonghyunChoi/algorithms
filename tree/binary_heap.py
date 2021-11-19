@@ -4,6 +4,7 @@ class BinaryHeap:
         self.n = n
         self.size = len(n) - 1
 
+
     def createHeap(self):
         for i in range(self.size//2, 0, -1):        # (size//2)+1부터는 이파리들
             self.downheap(i)

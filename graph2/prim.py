@@ -1,8 +1,7 @@
 import sys
-graph = []
-N = len(graph)
 
-def prim(s):
+def prim(s, graph):
+    N = len(graph)
     visited = [False] * N
     d = [sys.maxsize] * N
     d[s] = 0

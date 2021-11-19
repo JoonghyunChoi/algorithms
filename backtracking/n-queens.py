@@ -1,9 +1,7 @@
 col = {}
-n = 1
 queens = []
 
-def nQueens(i):
-    global col
+def nQueens(i, n):
     if promising(i):
         if i == n:
             t = []
@@ -13,10 +11,9 @@ def nQueens(i):
         else:
             for j in range(1, n+1):
                 col[i+1] = j
-                nQueens(i+1)
+                nQueens(i+1, n)
 
 def promising(i):
-    global col
     k = 1
     check = True
     while k < i and check:

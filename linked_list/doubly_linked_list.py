@@ -11,6 +11,7 @@ class Dlist:
         self.head.next = self.tail
         self.size = 0
 
+
     def insertBefore(self, item, next):
         t = next.prev
         n = Node(item, t, next)
@@ -25,6 +26,7 @@ class Dlist:
         prev.next = n
         self.size += 1
 
+
     def delete(self, n):
         if self.size == 0:
             return -1
@@ -36,6 +38,7 @@ class Dlist:
 
     def getSize(self):
         return self.size
+
 
     def print(self):
         if self.size == 0:

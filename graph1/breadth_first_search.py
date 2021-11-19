@@ -27,6 +27,8 @@ for i in range(N):
 
 
 # 재귀를 이용한 BFS
+q = []
+
 def bfs(q):
     if not q:
         return
@@ -40,7 +42,6 @@ def bfs(q):
             q.append(v)
     bfs(q)
 
-q = []
 for i in range(N):
     if not visited[i]:
         visited[i] = True

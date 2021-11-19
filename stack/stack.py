@@ -23,14 +23,14 @@ top = None
 size = 0
 
 def push(item):
-    global top
-    global size
+    global top, size
+
     top = Node(item, top)
     size += 1
 
 def pop():
-    global top
-    global size
+    global top, size
+
     if size != 0:
         topItem = top.item
         top = top.next

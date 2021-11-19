@@ -2,6 +2,7 @@
 adj = []
 N = len(adj)
 visited = [False] * N
+
 def dfs(u):
     visited[u] = True
 

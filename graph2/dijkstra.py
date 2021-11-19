@@ -1,10 +1,8 @@
 import sys
 import heapq
 
-graph = []
-N = len(graph)
-
-def dijkstra(s):
+def dijkstra(s, graph):
+    N = len(graph)
     d = [sys.maxsize] * N
     d[s] = 0
     previous = {s: s}

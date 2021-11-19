@@ -8,6 +8,7 @@ class Clist:
         self.last = None
         self.size = 0
 
+
     def insert(self, item):
         n = Node(item, None)
         if self.size == 0:
@@ -24,6 +25,7 @@ class Clist:
         f = self.last.next
         return f.item
 
+
     def delete(self):
         if self.size == 0:
             return -1
@@ -36,6 +38,7 @@ class Clist:
 
     def getSize(self):
         return self.size
+
 
     def print(self):
         if self.size == 0:

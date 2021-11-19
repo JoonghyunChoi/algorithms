@@ -1,15 +1,14 @@
 graph = []
 graph.sort(key=lambda x: x[2])
-mst = []
-p = []
-N = 0
+N = len(graph)
 
-def kruskal():
+def kruskal(n):
+    mst = []
     edges = 0
     cost = 0
 
     while True:
-        if edges == N-1:
+        if edges == n-1:
             break
         u, v, w = graph.pop(0)
         if find(u) != find(v):
@@ -18,6 +17,7 @@ def kruskal():
             cost += w
             edges += 1
 
+p = []
 for i in range(N):
     p[i] = i
 

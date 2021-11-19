@@ -4,6 +4,7 @@ class LinearProbing:
         self.hashTable = [None] * size
         self.dataTable = [None] * size
 
+
     def hash(self, key):
         return key % self.size
 
@@ -36,6 +37,7 @@ class LinearProbing:
             if i == h:
                 return None
         return None
+
 
   # delete()
 
