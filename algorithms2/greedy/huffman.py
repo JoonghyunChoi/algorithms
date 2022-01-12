@@ -1,16 +1,25 @@
 import heapq
 
 class Node:
-    def __init__(self, char = '', frequency = 0):
+    def __init__(self, char='', frequency=0):
         self.char = char
         self.frequency = frequency
         self.left = None
         self.right = None
+chars = {}
 
-heap = []
-code = {}
-def huffman(n):
-    for i in range(n-1):
+def huffman(heap):
+    n = huffmanTree(heap)
+
+    huffmanCode(n, '')
+
+    bits = 0
+    for i in chars:
+        bits += chars[i][0] * len(chars[i][1])
+    return bits
+
+def huffmanTree(heap):
+    for id in range(1, len(heap)):
         p = heapq.heappop(heap)[2]
         q = heapq.heappop(heap)[2]
 
@@ -18,25 +27,16 @@ def huffman(n):
         r.left = p
         r.right = q
         r.frequency = p.frequency + q.frequency
-        heapq.heappush(heap, (r.frequency, n+i, r))
 
+        heapq.heappush(heap, (r.frequency, id, r))
     r = heapq.heappop(heap)[2]
     return r
 
-def traversal(n, s):
+def huffmanCode(n, code):
     if n == None:
         return
 
-    traversal(n.left, s + '0')
-    traversal(n.right, s + '1')
+    huffmanCode(n.left, code + '0')
+    huffmanCode(n.right, code + '1')
     if n.char != '':
-        code[n.char] = (n.frequency, s)
-
-def bits():
-    n = len(heap)
-    traversal(huffman(n), '')
-
-    bits = 0
-    for i in code:
-        bits += code[i][0] * len(code[i][1])
-    return bits
+        chars[n.char] = (n.frequency, code)
