@@ -3,7 +3,7 @@ class Node:
         self.item = item
         self.next = next
 
-class Clist:
+class Circular_linked_list:
     def __init__(self):
         self.last = None
         self.size = 0
@@ -19,13 +19,6 @@ class Clist:
             self.last.next = n
         self.size += 1
 
-    def getFirst(self):
-        if self.size == 0:
-            return -1
-        f = self.last.next
-        return f.item
-
-
     def delete(self):
         if self.size == 0:
             return -1
@@ -36,11 +29,17 @@ class Clist:
             self.last.next = n.next
         self.size -= 1
 
+
     def getSize(self):
         return self.size
 
+    def getFirst(self):
+        if self.size == 0:
+            return -1
+        f = self.last.next
+        return f.item
 
-    def print(self):
+    def printAll(self):
         if self.size == 0:
             return -1
         else:

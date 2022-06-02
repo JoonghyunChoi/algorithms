@@ -1,33 +1,33 @@
-n = []
+a = [1, 2, 3]
 combinations = []
-used = [False] * (len(n)+1)
-s = []
+used = [False] * (len(a)+1)
+b = []
 
 # 조합
-def combination1(n, r):
-    if len(s) == r:
-        combinations.append(s.copy())
+def combination1(a, r):
+    if len(b) == r:
+        combinations.append(b.copy())
         return
 
-    index = 0 if len(s) == 0 else s[-1]
-    for i in range(index+1, len(n)+1):
-        if used[i]:
+    i = 0 if len(b) == 0 else b[-1]
+    for j in range(i+1, len(a)+1):
+        if used[j]:
             continue
-        used[i] = True
-        s.append(i)
-        combination1(n, r)
-        used[i] = False
-        s.pop()
+        used[j] = True
+        b.append(j)
+        combination1(a, r)
+        used[j] = False
+        b.pop()
 
 
 # 중복조합
-def combination2(n, r):
-    if len(s) == r:
-        combinations.append(s.copy())
+def combination2(a, r):
+    if len(b) == r:
+        combinations.append(b.copy())
         return
 
-    index = 1 if len(s) == 0 else s[-1]
-    for i in range(index, len(n)+1):
-        s.append(i)
-        combination2(n, r)
-        s.pop()
+    i = 1 if len(b) == 0 else b[-1]
+    for j in range(i, len(a)+1):
+        b.append(j)
+        combination2(a, r)
+        b.pop()

@@ -3,13 +3,13 @@ class Node:
         self.item = item
         self.next = next
 
-class Slist:
+class Singly_linked_list:
     def __init__(self):
         self.head = None
         self.size = 0
 
 
-    def insertBefore(self, item):
+    def insertFront(self, item):
         if self.size == 0:
             self.head = Node(item, None)
         else:
@@ -20,8 +20,7 @@ class Slist:
         prev.next = Node(item, prev.next)
         self.size += 1
 
-
-    def deleteBefore(self):
+    def deleteFront(self):
         if self.size == 0:
             return -1
         else:
@@ -36,6 +35,9 @@ class Slist:
         self.size -= 1
 
 
+    def getSize(self):
+        return self.size
+
     def search(self, target):
         p = self.head
         for k in range(self.size):
@@ -44,11 +46,7 @@ class Slist:
             p = p.next
         return None
 
-    def getSize(self):
-        return self.size
-
-
-    def print(self):
+    def printAll(self):
         p = self.head
         while p:
             if p.next != None:

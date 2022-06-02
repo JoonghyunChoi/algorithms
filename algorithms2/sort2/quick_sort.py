@@ -1,24 +1,24 @@
-def quickSort(n, low, high):
+def quickSort(a, low, high):
     if low < high:
-        pivot = partition(n, low, high)
+        pivot = partition(a, low, high)
 
-        quickSort(n, low, pivot-1)
-        quickSort(n, pivot+1, high)
+        quickSort(a, low, pivot-1)
+        quickSort(a, pivot+1, high)
 
-def partition(n, pivot, high):
-    i = pivot+1
+def partition(a, pivot, high):
+    i = pivot + 1
     j = high
     while True:
-        while i < high and n[i] < n[pivot]:
+        while i < high and a[i] < a[pivot]:
             i += 1
-        while j > pivot and n[j] > n[pivot]:
+        while j > pivot and a[j] > a[pivot]:
             j -= 1
+
         if i >= j:
             break
-
-        n[i], n[j] = n[j], n[i]
+        a[i], a[j] = a[j], a[i]
         i += 1
         j -= 1
 
-    n[pivot], n[j] = n[j], n[pivot]
+    a[pivot], a[j] = a[j], a[pivot]
     return j

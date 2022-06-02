@@ -1,25 +1,25 @@
-class Node:
-    def __init__(self, key, value, left=None, right=None):
-        self.key = key
-        self.value = value
-        self.left = left
-        self.right = right
-
 class BinarySearchTree:
+    class Node:
+        def __init__(self, key, value, left=None, right=None):
+            self.key = key
+            self.value = value
+            self.left = left
+            self.right = right
+
     def __init__(self):
         self.root = None
 
 
-    def get(self, k):
-        return self.getItem(self.root, k)
+    def get(self, key):
+        return self.getItem(self.root, key)
 
-    def getItem(self, n, k):
+    def getItem(self, n, key):
         if n == None:
             return None
-        if n.key > k:
-            return self.getItem(n.left, k)
-        elif n.key < k:
-            return self.getItem(n.right, k)
+        if n.key > key:
+            return self.getItem(n.left, key)
+        elif n.key < key:
+            return self.getItem(n.right, key)
         else:
             return n.value
 
@@ -28,7 +28,7 @@ class BinarySearchTree:
 
     def putItem(self, n, key, value):
         if n == None:
-            return Node(key, value)
+            return self.Node(key, value)
         if n.key > key:
             n.left = self.putItem(n.left, key, value)
         elif n.key < key:
@@ -41,22 +41,22 @@ class BinarySearchTree:
     def getMin(self):
         if self.root == None:
             return None
-        return self.getMinimum(self.root)
+        return self.getMinNode(self.root)
 
-    def getMinimum(self, n):
+    def getMinNode(self, n):
         if n.left == None:
             return n
-        return self.getMinimum(n.left)
+        return self.getMinNode(n.left)
 
     def getMax(self):
         if self.root == None:
             return None
-        return self.getMaximum(self.root)
+        return self.getMaxNode(self.root)
 
-    def getMaximum(self, n):
+    def getMaxNode(self, n):
         if n.right == None:
             return n
-        return self.getMaximum(n.right)
+        return self.getMaxNode(n.right)
 
 
     def deleteMin(self):
@@ -70,25 +70,24 @@ class BinarySearchTree:
         n.left = self.deleteMinNode(n.left)
         return n
 
-    def delete(self, k):
-        self.root = self.deleteNode(self.root, k)
+    def delete(self, key):
+        self.root = self.deleteNode(self.root, key)
 
-    def deleteNode(self, n, k):
+    def deleteNode(self, n, key):
         if n == None:
             return None
-        if n.key > k:
-            n.left = self.deleteNode(n.left, k)
-        elif n.key < k:
-            n.right = self.deleteNode(n.right, k)
+        if n.key > key:
+            n.left = self.deleteNode(n.left, key)
+        elif n.key < key:
+            n.right = self.deleteNode(n.right, key)
         else:
+            if n.right == None:
+                return n.left
             if n.left == None:
                 return n.right
 
-            if n.right == None:
-                return n.left
-
             targetNode = n
-            n = self.getMinimum(targetNode.right)           # 삭제될 노드의 왼쪽 서브트리의 최댓값을 이용하는 방법도 가능
-            n.left = targetNode.left
+            n = self.getMinNode(targetNode.right)           # 삭제될 노드의 왼쪽 서브트리의 최댓값을 이용하는 방법도 가능
             n.right = self.deleteMinNode(targetNode.right)
+            n.left = targetNode.left
         return n

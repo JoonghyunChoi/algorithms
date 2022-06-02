@@ -21,7 +21,6 @@ class Node:
 
 top = None
 size = 0
-
 def push(item):
     global top, size
 
@@ -41,7 +40,7 @@ def peek():
     if size != 0:
         return top.item
 
-def printStack():
+def printAll():
     p = top
     while p:
         if p.next != None:

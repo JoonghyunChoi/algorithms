@@ -1,5 +1,5 @@
-def bubbleSort(n):
-    for i in range(0, len(n)-1):
-        for j in range(0, len(n)-1-i):
-            if n[j] > n[j+1]:
-                n[j], n[j+1] = n[j+1], n[j]
+def bubbleSort(a):
+    for i in range(0, len(a)-1):
+        for j in range(0, len(a)-1-i):
+            if a[j] > a[j+1]:
+                a[j], a[j+1] = a[j+1], a[j]

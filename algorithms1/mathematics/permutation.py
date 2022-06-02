@@ -1,31 +1,31 @@
-n = []
+a = []
 permutations = []
-used = [False] * (len(n)+1)
-s = []
+used = [False] * (len(a)+1)
+b = []
 
 # 순열
-def permutation1(n, r):
-    if len(s) == r:
-        permutations.append(s.copy())
+def permutation1(a, r):
+    if len(b) == r:
+        permutations.append(b.copy())
         return
 
-    for i in range(1, len(n)+1):
+    for i in range(1, len(a)+1):
         if used[i]:
             continue
         used[i] = True
-        s.append(i)
-        permutation1(n, r)
+        b.append(i)
+        permutation1(a, r)
         used[i] = False
-        s.pop()
+        b.pop()
 
 
 # 중복순열
-def permutation2(n, r):
-    if len(s) == r:
-        permutations.append(s.copy())
+def permutation2(a, r):
+    if len(b) == r:
+        permutations.append(b.copy())
         return
 
-    for i in range(1, len(n)+1):
-        s.append(i)
-        permutation2(n, r)
-        s.pop()
+    for i in range(1, len(a)+1):
+        b.append(i)
+        permutation2(a, r)
+        b.pop()

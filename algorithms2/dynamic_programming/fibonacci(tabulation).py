@@ -1,8 +1,8 @@
 def fib(n):
-    fib = {}
+    fibs = {}
     for k in range(1, n+1):
         if k <= 2:
-            fib[k] = 1
+            fibs[k] = 1
         else:
-            fib[k] = fib[k-1] + fib[k-2]
-    return fib[n]
+            fibs[k] = fibs[k-1] + fibs[k-2]
+    return fibs[n]

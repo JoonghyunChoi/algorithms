@@ -9,9 +9,9 @@ class Chaining:
         self.size = size
         self.hashTable = [None] * size
 
-
     def hash(self, key):
         return key % self.size
+
 
     def put(self, key, item):
         h = self.hash(key)

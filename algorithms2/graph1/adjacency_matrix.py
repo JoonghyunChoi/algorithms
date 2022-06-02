@@ -1,5 +1,6 @@
-V, E = 0, 0
-u, v = 0, 0
-adj = [[0 for _ in range(V)] for _ in range(V)]
+V = 0
+u, v, w = 0, 0, 0
 
-adj[u][v], adj[v][u] = 1, 1     # w, w
+adj = [[0 for _ in range(V)] for _ in range(V)]
+adj[u][v] = 1
+adj[v][u] = 1

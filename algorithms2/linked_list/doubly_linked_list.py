@@ -4,7 +4,7 @@ class Node:
         self.prev = prev
         self.next = next
 
-class Dlist:
+class Doubly_linked_list:
     def __init__(self):
         self.head = Node(None, None, None)
         self.tail = Node(None, self.head, None)
@@ -26,7 +26,6 @@ class Dlist:
         prev.next = n
         self.size += 1
 
-
     def delete(self, n):
         if self.size == 0:
             return -1
@@ -36,11 +35,11 @@ class Dlist:
         t.prev = p
         self.size -= 1
 
+
     def getSize(self):
         return self.size
 
-
-    def print(self):
+    def printAll(self):
         if self.size == 0:
             return -1
         p = self.head.next

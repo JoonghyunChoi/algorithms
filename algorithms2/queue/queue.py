@@ -8,7 +8,7 @@ def remove():
         item = queue.pop(0)
         return item
 
-def printQueue():
+def printAll():
     for i in range(len(queue)):
         print(queue[i], end=' ')
     print()
@@ -23,7 +23,6 @@ class Node:
 front = None
 rear = None
 size = 0
-
 def add(item):
     global front, rear, size
 
@@ -44,7 +43,7 @@ def remove():
         if size == 0:
             rear = None
 
-def printQueue():
+def printAll():
     p = front
     while p:
         if p.next != None:

@@ -1,6 +1,6 @@
-V, E = 0, 0
-u, v = 0, 0
-i = 0
-edges = [[] for _ in range(E)]
+E = 0
+u, v, w = 0, 0, 0
+e = 0
 
-edges[i].append([u, v])     # [u, v, w]
+edges = [[] for _ in range(E)]
+edges[e].append([(u, v)])

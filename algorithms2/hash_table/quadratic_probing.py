@@ -22,7 +22,7 @@ class QuadraticProbing:
                 return
             j += 1
             i = (h + j*j) % self.size
-            if j == 100:                    # 반복문 제한
+            if j == 100:    # 반복문 제한
                 break
 
     def get(self, key):

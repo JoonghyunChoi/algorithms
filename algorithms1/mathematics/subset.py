@@ -1,11 +1,11 @@
 subsets = []
-s = []
+b = []
 
-def subset(n, k):
-    if k == len(n)+1:
-        subsets.append(s.copy())
+def subset(a, k):
+    if k == len(a) + 1:
+        subsets.append(b.copy())
     else:
-        s.append(k)
-        subset(n, k+1)
-        s.pop()
-        subset(n, k+1)
+        b.append(k)
+        subset(a, k+1)
+        b.pop()
+        subset(a, k+1)

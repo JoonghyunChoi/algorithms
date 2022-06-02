@@ -1,7 +1,7 @@
 adj = []
 N = len(adj)
 visited = [False] * N
-order = []
+a = []
 
 def dfs(u):
     visited[u] = True
@@ -9,9 +9,9 @@ def dfs(u):
     for v in adj[u]:
         if not visited[v]:
             dfs(v)
-    order.append(u)
+    a.append(u)
 
 for i in range(N):
     if not visited[i]:
         dfs(i)
-order.reverse()
+a.reverse()

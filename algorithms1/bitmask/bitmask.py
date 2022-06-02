@@ -1,4 +1,4 @@
-def bitmasking(x, n):
+def bitMasking(x, n):
     bits = ''
     for i in range(n-1, -1, -1):
         if x & (1 << i):

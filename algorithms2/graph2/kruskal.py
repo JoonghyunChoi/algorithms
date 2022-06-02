@@ -1,24 +1,23 @@
 graph = []
 graph.sort(key=lambda x: x[2])
-N = len(graph)
 
 def kruskal(n):
     mst = []
-    edges = 0
-    cost = 0
+    tree_edges = 0
+    mst_cost = 0
 
     while True:
-        if edges == n-1:
+        if tree_edges == n-1:
             break
         u, v, w = graph.pop(0)
         if find(u) != find(v):
             union(u, v)
             mst.append((u, v))
-            cost += w
-            edges += 1
+            mst_cost += w
+            tree_edges += 1
 
 p = []
-for i in range(N):
+for i in range(len(graph)):
     p[i] = i
 
 def find(u):

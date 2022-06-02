@@ -1,5 +1,5 @@
-def insertionSort(n):
-    for i in range(0, len(n)-1):
+def insertionSort(a):
+    for i in range(0, len(a)-1, 1):
         for j in range(i, -1, -1):
-            if n[j] > n[j+1]:
-                n[j], n[j+1] = n[j+1], n[j]
+            if a[j+1] < a[j]:
+                a[j+1], a[j] = a[j], a[j+1]

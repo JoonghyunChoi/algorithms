@@ -1,42 +1,42 @@
 import heapq
 
-class Node:
-    def __init__(self, char='', frequency=0):
-        self.char = char
-        self.frequency = frequency
-        self.left = None
-        self.right = None
-chars = {}
+class Huffman:
+    class Node:
+        def __init__(self, char='', frequency=0):
+            self.char = char
+            self.frequency = frequency
+            self.left = None
+            self.right = None
+    def __init__(self):
+        self.chars = {}
 
-def huffman(heap):
-    n = huffmanTree(heap)
+    def huffmanTree(self, queue):
+        for id in range(1, len(queue)):
+            p = heapq.heappop(queue)[2]
+            q = heapq.heappop(queue)[2]
+            r = self.Node()
 
-    huffmanCode(n, '')
+            r.left = p
+            r.right = q
+            r.frequency = p.frequency + q.frequency
+            heapq.heappush(queue, (r.frequency, id, r))
+        r = heapq.heappop(queue)[2]
+        return r
 
-    bits = 0
-    for i in chars:
-        bits += chars[i][0] * len(chars[i][1])
-    return bits
+    def huffmanCode(self, n, code):
+        if n == None:
+            return
+        self.huffmanCode(n.left, code+'0')
+        self.huffmanCode(n.right, code+'1')
 
-def huffmanTree(heap):
-    for id in range(1, len(heap)):
-        p = heapq.heappop(heap)[2]
-        q = heapq.heappop(heap)[2]
+        if n.char != '':
+            self.chars[n.char] = (n.frequency, code)
 
-        r = Node()
-        r.left = p
-        r.right = q
-        r.frequency = p.frequency + q.frequency
+    def __call__(self, queue):
+        n = self.huffmanTree(queue)
+        self.huffmanCode(n, '')
 
-        heapq.heappush(heap, (r.frequency, id, r))
-    r = heapq.heappop(heap)[2]
-    return r
-
-def huffmanCode(n, code):
-    if n == None:
-        return
-
-    huffmanCode(n.left, code + '0')
-    huffmanCode(n.right, code + '1')
-    if n.char != '':
-        chars[n.char] = (n.frequency, code)
+        bits = 0
+        for char in self.chars:
+            bits += self.chars[char][0] * len(self.chars[char][1])
+        return bits

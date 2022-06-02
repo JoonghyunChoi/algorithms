@@ -1,11 +1,11 @@
 adj = []
 N = len(adj)
 visited = [False] * N
-CC = []
+connected_components = []
 
 def dfs(u):
     visited[u] = True
-    cc.append(u)
+    connected_component.append(u)
 
     for v in adj[u]:
         if not visited[v]:
@@ -13,6 +13,6 @@ def dfs(u):
 
 for i in range(N):
     if not visited[i]:
-        cc = []
+        connected_component = []
         dfs(i)
-        CC.append(cc)
+        connected_components.append(connected_component)
