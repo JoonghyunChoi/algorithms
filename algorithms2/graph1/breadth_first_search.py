@@ -6,9 +6,8 @@ distance = {}
 previous = {}
 
 def bfs(u):
-    queue = []
     visited[u] = True
-    queue.append(u)
+    queue = [u]
 
     while queue:
         u = queue.pop(0)

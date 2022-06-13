@@ -17,12 +17,11 @@ for i in range(N):
 
 # 스택을 이용한 DFS
 def dfs(u):
-    stack = []
     visited[u] = True
-    stack.append(u)
+    stack = [u]
 
     while stack:
-        u = stack.pop()
+        u = stack.pop(-1)
         for v in adj[u]:
             if not visited[v]:
                 visited[v] = True

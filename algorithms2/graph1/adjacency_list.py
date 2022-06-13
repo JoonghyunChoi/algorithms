@@ -1,6 +1,5 @@
-V = 0
-u, v, w = 0, 0, 0
-
-adj = [[] for _ in range(V)]
-adj[u].append(v)
-adj[v].append(u)
+def adjacency_list(u, v, w, V, E):
+    adj = [[] for _ in range(V)]
+    for _ in range(E):
+        adj[u].append(v)
+        adj[v].append(u)
