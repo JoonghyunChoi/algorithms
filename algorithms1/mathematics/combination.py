@@ -4,8 +4,8 @@ used = [False] * (len(a)+1)
 b = []
 
 # 조합
-def combination1(a, r):
-    if len(b) == r:
+def combination(a, k):
+    if len(b) == k:
         combinations.append(b.copy())
         return
 
@@ -15,19 +15,19 @@ def combination1(a, r):
             continue
         used[j] = True
         b.append(j)
-        combination1(a, r)
+        combination(a, k)
         used[j] = False
         b.pop()
 
 
 # 중복조합
-def combination2(a, r):
-    if len(b) == r:
+def combination2(a, k):
+    if len(b) == k:
         combinations.append(b.copy())
         return
 
     i = 1 if len(b) == 0 else b[-1]
     for j in range(i, len(a)+1):
         b.append(j)
-        combination2(a, r)
+        combination2(a, k)
         b.pop()

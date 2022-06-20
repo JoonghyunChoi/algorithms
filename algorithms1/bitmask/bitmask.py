@@ -1,21 +1,51 @@
-def bitMasking(x, n):
-    bits = ''
-    for i in range(n-1, -1, -1):
-        if x & (1 << i):
-            bits += '1'
-        else:
-            bits += '0'
-    return bits
+class Bitmask:
+    def add(self, a, k):
+        return a | (1 << k)
 
-def bitCount(x):
-    if x == 0:
-        return 0
-    return (x & 1) + bitCount(x >> 1)
+    def remove(self, a, k):
+        return a & ~(1 << k)
 
-def bitSubset(x):
-    subset = x
-    subsets = []
-    while subset:
-        subsets.append(bin(subset))
-        subset = (subset - 1) & x
-    return subsets
+    def toggle(self, a, k):
+        return a ^ (1 << k)
+
+    def is_included(self, a, k):
+        return bool(a & (1 << k))
+
+    def empty_set(self, a):
+        a = 0
+        return a
+
+    def full_set(self, a, n):
+        a = (1 << n) - 1
+        return a
+
+    def union(self, a, b):
+        return a | b
+
+    def intersection(self, a, b):
+        return a & b
+
+    def difference(self, a, b):
+        return a & (~b)
+
+    def symmetric_difference(self, a, b):
+        return a ^ b
+
+    def bit_count(self, a):
+        if a == 0:
+            return 0
+        return (a & 1) + self.bit_count(a >> 1)
+
+    def get_min(self, a):
+        return a & (~a + 1)
+
+    def remove_min(self, a):
+        return a & (a - 1)
+
+    def subsets(self, a):
+        subset = a
+        subsets_ = []
+        while subset:
+            subsets_.append(bin(subset))
+            subset = (subset - 1) & a
+        return subsets_

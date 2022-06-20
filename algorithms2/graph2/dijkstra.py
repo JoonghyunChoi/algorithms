@@ -3,7 +3,7 @@ import heapq
 
 graph = []
 
-def dijkstra1(s):
+def dijkstra(s):
     N = len(graph)
     visited = [False] * N
     d = [sys.maxsize] * N
