@@ -1,2 +1,2 @@
-# sort, enumerate, lambda, map, filter
+# sort, reverse, lambda, map, filter
 # collections, itertools, heapq, bisect, math
