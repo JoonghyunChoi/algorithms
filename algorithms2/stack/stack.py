@@ -40,7 +40,7 @@ def peek():
     if size != 0:
         return top.item
 
-def printAll():
+def print_all():
     p = top
     while p:
         if p.next != None:

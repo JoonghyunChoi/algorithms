@@ -1,4 +1,4 @@
-def shellSort(a):
+def shell_sort(a):
     h = len(a) // 2
     while h >= 1:
         for i in range(h, len(a)):    # h-sort

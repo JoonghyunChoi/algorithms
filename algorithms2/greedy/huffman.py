@@ -10,7 +10,7 @@ class Huffman:
     def __init__(self):
         self.chars = {}
 
-    def huffmanTree(self, queue):
+    def huffman_tree(self, queue):
         for id in range(1, len(queue)):
             p = heapq.heappop(queue)[2]
             q = heapq.heappop(queue)[2]
@@ -23,18 +23,18 @@ class Huffman:
         r = heapq.heappop(queue)[2]
         return r
 
-    def huffmanCode(self, n, code):
+    def huffman_code(self, n, code):
         if n == None:
             return
-        self.huffmanCode(n.left, code+'0')
-        self.huffmanCode(n.right, code+'1')
+        self.huffman_code(n.left, code+'0')
+        self.huffman_code(n.right, code+'1')
 
         if n.char != '':
             self.chars[n.char] = (n.frequency, code)
 
     def __call__(self, queue):
-        n = self.huffmanTree(queue)
-        self.huffmanCode(n, '')
+        n = self.huffman_tree(queue)
+        self.huffman_code(n, '')
 
         bits = 0
         for char in self.chars:

@@ -1,10 +1,10 @@
-def mergeSort(a, b, low, high):
+def merge_sort(a, b, low, high):
     if high <= low:
         return
 
     mid = low + (high - low) // 2
-    mergeSort(a, b, low, mid)
-    mergeSort(a, b, mid+1, high)
+    merge_sort(a, b, low, mid)
+    merge_sort(a, b, mid+1, high)
     merge(a, b, low, mid, high)
 
 def merge(a, b, low, mid, high):

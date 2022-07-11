@@ -1,9 +1,9 @@
-def quickSort(a, low, high):
+def quick_sort(a, low, high):
     if low < high:
         pivot = partition(a, low, high)
 
-        quickSort(a, low, pivot-1)
-        quickSort(a, pivot+1, high)
+        quick_sort(a, low, pivot-1)
+        quick_sort(a, pivot+1, high)
 
 def partition(a, pivot, high):
     i = pivot + 1

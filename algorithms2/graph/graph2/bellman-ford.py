@@ -1,6 +1,6 @@
 import sys
 
-def bellmanFord(s, a):
+def bellman_ford(s, a):
     N = len(a)
     d = [sys.maxsize] * N
     d[s] = 0

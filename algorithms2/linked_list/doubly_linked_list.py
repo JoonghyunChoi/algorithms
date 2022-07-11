@@ -1,27 +1,26 @@
-class Node:
-    def __init__(self, item, prev, next):
-        self.item = item
-        self.prev = prev
-        self.next = next
+class DoublyLinkedList:
+    class Node:
+        def __init__(self, item, prev, next):
+            self.item = item
+            self.prev = prev
+            self.next = next
 
-class Doubly_linked_list:
     def __init__(self):
-        self.head = Node(None, None, None)
-        self.tail = Node(None, self.head, None)
+        self.head = self.Node(None, None, None)
+        self.tail = self.Node(None, self.head, None)
         self.head.next = self.tail
         self.size = 0
 
-
-    def insertBefore(self, item, next):
+    def insert_before(self, item, next):
         t = next.prev
-        n = Node(item, t, next)
+        n = self.Node(item, t, next)
         next.prev = n
         t.next = n
         self.size += 1
 
-    def insertAfter(self, item, prev):
+    def insert_after(self, item, prev):
         t = prev.next
-        n = Node(item, prev, t)
+        n = self.Node(item, prev, t)
         t.prev = n
         prev.next = n
         self.size += 1
@@ -35,11 +34,10 @@ class Doubly_linked_list:
         t.prev = p
         self.size -= 1
 
-
-    def getSize(self):
+    def get_size(self):
         return self.size
 
-    def printAll(self):
+    def print_all(self):
         if self.size == 0:
             return -1
         p = self.head.next

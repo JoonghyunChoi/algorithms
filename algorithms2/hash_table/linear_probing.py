@@ -7,7 +7,6 @@ class LinearProbing:
     def hash(self, key):
         return key % self.size
 
-
     def put(self, key, item):
         h = self.hash(key)
         i = h
@@ -38,9 +37,8 @@ class LinearProbing:
                 return None
         return None
 
-
     # def delete()
 
-    def printAll(self):
+    def print_all(self):
         for i in range(self.size):
             print(i, self.hashTable[i])

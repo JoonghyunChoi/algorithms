@@ -1,42 +1,37 @@
-class Node:
-    def __init__(self, item, next):
-        self.item = item
-        self.next = next
+class SinglyLinkedList:
+    class Node:
+        def __init__(self, item, next):
+            self.item = item
+            self.next = next
 
-class Singly_linked_list:
     def __init__(self):
         self.head = None
         self.size = 0
 
-
-    def insertFront(self, item):
+    def insert_front(self, item):
         if self.size == 0:
-            self.head = Node(item, None)
+            self.head = self.Node(item, None)
         else:
-            self.head = Node(item, self.head)
+            self.head = self.Node(item, self.head)
         self.size += 1
 
-    def insertAfter(self, item, prev):
-        prev.next = Node(item, prev.next)
+    def insert_after(self, item, prev):
+        prev.next = self.Node(item, prev.next)
         self.size += 1
 
-    def deleteFront(self):
+    def delete_front(self):
         if self.size == 0:
             return -1
         else:
             self.head = self.head.next
             self.size -= 1
 
-    def deleteAfter(self, prev):
+    def delete_after(self, prev):
         if self.size == 0:
             return -1
         t = prev.next
         prev.next = t.next
         self.size -= 1
-
-
-    def getSize(self):
-        return self.size
 
     def search(self, target):
         p = self.head
@@ -46,7 +41,10 @@ class Singly_linked_list:
             p = p.next
         return None
 
-    def printAll(self):
+    def get_size(self):
+        return self.size
+
+    def print_all(self):
         p = self.head
         while p:
             if p.next != None:

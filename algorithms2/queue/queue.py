@@ -8,7 +8,7 @@ def remove():
         item = queue.pop(0)
         return item
 
-def printAll():
+def print_all():
     for i in range(len(queue)):
         print(queue[i], end=' ')
     print()
@@ -43,7 +43,7 @@ def remove():
         if size == 0:
             rear = None
 
-def printAll():
+def print_all():
     p = front
     while p:
         if p.next != None:

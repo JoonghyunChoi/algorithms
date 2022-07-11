@@ -1,24 +1,25 @@
-def binarySearch(a, target):
-    low = 0
-    high = len(a) - 1
+def binary_search(n, a):
+    left = 0
+    right = len(a) - 1
 
-    while low < high:
-        mid = (low + high) // 2
-        if target == a[mid]:
+    while left <= right:
+        mid = (left + right) // 2
+        if n == a[mid]:
             return mid
-        elif target < a[mid]:
-            high = mid - 1
+        elif n < a[mid]:
+            right = mid - 1
         else:
-            low = mid + 1
+            left = mid + 1
+    return -1
 
 
-def binarySearch2(a, target, low, high):
-    if low >= high:
+def binary_search2(n, a, left, right):
+    if left > right:
         return -1
-    mid = (low + high) // 2
-    if target == a[mid]:
+    mid = (left + right) // 2
+    if n == a[mid]:
         return mid
-    elif target < a[mid]:
-        return binarySearch2(a, target, low, mid-1)
+    elif n < a[mid]:
+        return binary_search2(n, a, left, mid-1)
     else:
-        return binarySearch2(a, target, mid+1, high)
+        return binary_search2(n, a, mid+1, right)

@@ -1,16 +1,15 @@
-class Node:
-    def __init__(self, item, next):
-        self.item = item
-        self.next = next
+class CircularLinkedList:
+    class Node:
+        def __init__(self, item, next):
+            self.item = item
+            self.next = next
 
-class Circular_linked_list:
     def __init__(self):
         self.last = None
         self.size = 0
 
-
     def insert(self, item):
-        n = Node(item, None)
+        n = self.Node(item, None)
         if self.size == 0:
             n.next = n
             self.last = n
@@ -29,17 +28,16 @@ class Circular_linked_list:
             self.last.next = n.next
         self.size -= 1
 
-
-    def getSize(self):
-        return self.size
-
-    def getFirst(self):
+    def get_first(self):
         if self.size == 0:
             return -1
         f = self.last.next
         return f.item
 
-    def printAll(self):
+    def get_size(self):
+        return self.size
+
+    def print_all(self):
         if self.size == 0:
             return -1
         else:

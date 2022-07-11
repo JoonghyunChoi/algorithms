@@ -3,8 +3,7 @@ class BinaryHeap:
         self.n = n
         self.size = len(n) - 1
 
-
-    def createHeap(self):
+    def create_heap(self):
         for i in range(self.size//2, 0, -1):    # (size//2)+1부터는 이파리
             self.downheap(i)
 
@@ -13,17 +12,16 @@ class BinaryHeap:
         self.n.append(item)
         self.upheap(self.size)
 
-    def deleteMin(self):
+    def delete_min(self):
         if self.size == 0:
             return None
-
-        min = self.n[1]
+        min_ = self.n[1]
         self.n[1], self.n[-1] = self.n[-1], self.n[1]
         del self.n[-1]
+
         self.size -= 1
         self.downheap(1)
-        return min
-
+        return min_
 
     def downheap(self, p):
         while p <= self.size//2:

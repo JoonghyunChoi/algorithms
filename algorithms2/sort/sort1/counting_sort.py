@@ -1,4 +1,4 @@
-def countingSort1(a):
+def counting_sort(a):
     counts = [0] * (max(a)+1)
 
     for i in range(len(a)):
@@ -11,7 +11,7 @@ def countingSort1(a):
     return b
 
 
-def countingSort2(a):
+def counting_sort2(a):
     N = len(a)
     counts = [0] * (max(a)+1)
 

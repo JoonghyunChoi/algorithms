@@ -1,5 +1,5 @@
 # LSD 기수정렬
-def radixSort1(a):
+def radix_sort1(a):
     Length = len(a[0])
     R = 128
     N = len(a)
@@ -21,7 +21,7 @@ def radixSort1(a):
 
 
 # MSD 기수정렬
-def radixSort2(a, low, high, d):
+def radix_sort2(a, low, high, d):
     R = 256
     N = len(a)
     b = [0] * N
@@ -44,7 +44,7 @@ def radixSort2(a, low, high, d):
     for r in range(0, R+1):
         low = low + counts[r]
         high = low + counts[r+1] - 1
-        radixSort2(a, low, high, d+1)
+        radix_sort2(a, low, high, d+1)
 
 def pop(str, d):
     if d < len(str):
