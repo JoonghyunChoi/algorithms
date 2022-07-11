@@ -1,6 +1,5 @@
-# 큐를 이용한 BFS
-adj = []
-N = len(adj)
+a = []
+N = len(a)
 visited = [False] * N
 distance = {}
 previous = {}
@@ -11,7 +10,7 @@ def bfs(u):
 
     while queue:
         u = queue.pop(0)
-        for v in adj[u]:
+        for v in a[u]:
             if not visited[v]:
                 visited[v] = True
                 distance[v] = distance[u] + 1
@@ -25,21 +24,19 @@ for i in range(N):
         bfs(i)
 
 
-# 재귀를 이용한 BFS
 q = []
-
-def bfs(q):
+def bfs2(q):
     if not q:
         return
 
     u = q.pop(0)
-    for v in adj[u]:
+    for v in a[u]:
         if not visited[v]:
             visited[v] = True
             distance[v] = distance[u] + 1
             previous[v] = u
             q.append(v)
-    bfs(q)
+    bfs2(q)
 
 for i in range(N):
     if not visited[i]:
@@ -47,4 +44,4 @@ for i in range(N):
         distance[i] = 0
         previous[i] = None
         q.append(i)
-        bfs(q)
+        bfs2(q)

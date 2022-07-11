@@ -1,31 +1,26 @@
-graph = []
-graph.sort(key=lambda x: x[2])
+def kruskal(n, a):
+    def kruskal_(n, a):
+        global p
+        p = list(range(n))
+        a.sort(key=lambda x: x[2])
+        mst, edges, costs = [], 0, 0
 
-def kruskal(n):
-    mst = []
-    tree_edges = 0
-    mst_cost = 0
+        while edges != n-1:
+            u, v, w = a.pop(0)
+            if find(u) != find(v):
+                union(u, v)
+                mst.append((u, v))
+                costs += w
+                edges += 1
+        return costs
 
-    while True:
-        if tree_edges == n-1:
-            break
-        u, v, w = graph.pop(0)
-        if find(u) != find(v):
-            union(u, v)
-            mst.append((u, v))
-            mst_cost += w
-            tree_edges += 1
+    def find(u):
+        if u != p[u]:
+            p[u] = find(p[u])
+        return p[u]
 
-p = []
-for i in range(len(graph)):
-    p[i] = i
-
-def find(u):
-    if u != p[u]:
-        p[u] = find(p[u])
-    return p[u]
-
-def union(u, v):
-    root1 = find(u)
-    root2 = find(v)
-    p[root2] = root1
+    def union(u, v):
+        root1 = find(u)
+        root2 = find(v)
+        p[root2] = root1
+    return kruskal_(n, a)

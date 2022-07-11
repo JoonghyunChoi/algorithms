@@ -1,4 +1,3 @@
-# 최소힙
 class BinaryHeap:
     def __init__(self, n):
         self.n = n

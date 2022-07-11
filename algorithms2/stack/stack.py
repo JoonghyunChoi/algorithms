@@ -1,4 +1,4 @@
-# 배열을 이용한 스택
+# stack
 stack = []
 def push(item):
     stack.append(item)
@@ -13,7 +13,7 @@ def peek():
         return stack[-1]
 
 
-# 단순연결리스트를 이용한 스택
+# stack2
 class Node:
     def __init__(self, item, next):
         self.item = item

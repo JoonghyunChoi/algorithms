@@ -1,2 +1,5 @@
-# sort, reverse, lambda, map, filter
+# sorted, reversed, lambda, map, filter
 # collections, itertools, heapq, bisect, math
+
+# backtracking, branch_and_bound
+# two_pointer, sliding_window

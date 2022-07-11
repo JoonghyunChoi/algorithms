@@ -1,4 +1,4 @@
-# 배열을 이용한 큐
+# queue
 queue = []
 def add(item):
     queue.append(item)
@@ -14,7 +14,7 @@ def printAll():
     print()
 
 
-# 단순연결리스트를 이용한 큐
+# queue2
 class Node:
     def __init__(self, item, next):
         self.item = item
