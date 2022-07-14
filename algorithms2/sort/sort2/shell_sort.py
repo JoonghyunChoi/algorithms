@@ -7,3 +7,4 @@ def shell_sort(a):
                 a[j], a[j-h] = a[j-h], a[j]
                 j -= h
         h //= 2
+    return a

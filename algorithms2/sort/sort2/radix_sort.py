@@ -18,6 +18,7 @@ def radix_sort1(a):
             freqSum += 1
         for i in range(N):
             a[i] = b[i]
+    return a
 
 
 # MSD 기수정렬
@@ -46,8 +47,8 @@ def radix_sort2(a, low, high, d):
         high = low + counts[r+1] - 1
         radix_sort2(a, low, high, d+1)
 
-def pop(str, d):
-    if d < len(str):
-        return ord(str.pop(d))
+def pop(str_, d):
+    if d < len(str_):
+        return ord(str_.pop(d))
     else:
         return -1

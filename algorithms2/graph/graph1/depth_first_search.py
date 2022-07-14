@@ -1,22 +1,17 @@
 a = []
-N = len(a)
-visited = [False] * N
+visited = [False] * len(a)
 
-def dfs(u):
+def dfs(u, a):
     visited[u] = True
 
     for v in a[u]:
         if not visited[v]:
             dfs(v)
 
-for i in range(N):
-    if not visited[i]:
-        dfs(i)
 
-
-def dfs2(u):
-    visited[u] = True
-    stack = [u]
+def dfs2(s, a):
+    visited[s] = True
+    stack = [s]
 
     while stack:
         u = stack.pop(-1)
@@ -24,7 +19,3 @@ def dfs2(u):
             if not visited[v]:
                 visited[v] = True
                 stack.append(v)
-
-for i in range(N):
-    if not visited[i]:
-        dfs2(i)

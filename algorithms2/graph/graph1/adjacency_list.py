@@ -1,5 +1,11 @@
-def adjacency_list(u, v, w, V, E):
-    adj = [[] for _ in range(V)]
+def adjacency_list(u, v, V, E):
+    a = [[] for _ in range(V)]
     for _ in range(E):
-        adj[u].append(v)
-        adj[v].append(u)
+        a[u].append(v)
+        a[v].append(u)
+
+
+def edge_list(u, v, e, E):
+    a = [[] for _ in range(E)]
+    for _ in range(E):
+        a[e].append([(u, v)])

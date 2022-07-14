@@ -1,20 +1,26 @@
 def heap_sort(a):
-    N = len(a) - 1
-    for i in range(N//2, 0, -1):
-        downheap(i, N, a)
+    def create_heap(a):
+        n = len(a) - 1
+        for i in range(n//2, 0, -1):
+            downheap(i, n, a)
 
-    for i in range(N):
-        a[1], a[N] = a[N], a[1]
-        downheap(1, N-1, a)
-        N -= 1
+    def downheap(p, n, a):
+        while 2 * p <= n:
+            c = 2 * p
+            if c < n and a[c] < a[c+1]:
+                c += 1
+            if a[p] >= a[c]:
+                break
+            a[p], a[c] = a[c], a[p]
+            p = c
 
-def downheap(p, N, a):
-    while p <= N//2:
-        c = 2 * p
+    def heap_sort_(a):
+        create_heap(a)
 
-        if c < N and a[c+1] > a[c]:
-            c += 1
-        if a[p] >= a[c]:
-            break
-        a[p], a[c] = a[c], a[p]
-        p = c
+        n = len(a) - 1
+        for i in range(n):
+            a[1], a[n] = a[n], a[1]
+            downheap(1, n-1, a)
+            n -= 1
+        return a
+    return heap_sort_(a)

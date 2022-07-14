@@ -1,17 +1,17 @@
-a = []
-N = len(a)
-visited = [False] * N
-b = []
+def topological_sort(a):
+    visited = [False] * len(a)
+    b = []
 
-def dfs(u):
-    visited[u] = True
+    def dfs(u):
+        visited[u] = True
 
-    for v in a[u]:
-        if not visited[v]:
-            dfs(v)
-    b.append(u)
+        for v in a[u]:
+            if not visited[v]:
+                dfs(v)
+        b.append(u)
 
-for i in range(N):
-    if not visited[i]:
-        dfs(i)
-b.reverse()
+    for i in range(len(a)):
+        if not visited[i]:
+            dfs(i)
+    b.reverse()
+    return b
