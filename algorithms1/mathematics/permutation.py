@@ -1,31 +1,27 @@
 a = []
-permutations = []
 used = [False] * (len(a)+1)
-b = []
+permutations = []
 
-# 순열
-def permutation(a, k):
+def permutation1(k, a, b):
     if len(b) == k:
-        permutations.append(b.copy())
+        permutations.append(b[:])
         return
 
     for i in range(1, len(a)+1):
-        if used[i]:
-            continue
-        used[i] = True
-        b.append(i)
-        permutation(a, k)
-        used[i] = False
-        b.pop()
+        if not used[i]:
+            used[i] = True
+            b.append(i)
+            permutation1(k, a, b)
+            used[i] = False
+            b.pop()
 
 
-# 중복순열
-def permutation2(a, k):
+def permutation2(k, a, b):
     if len(b) == k:
-        permutations.append(b.copy())
+        permutations.append(b[:])
         return
 
     for i in range(1, len(a)+1):
         b.append(i)
-        permutation2(a, k)
+        permutation2(k, a, b)
         b.pop()
