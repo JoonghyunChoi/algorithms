@@ -3,19 +3,22 @@ memo = {}
 def fib(n):
     if n in memo:
         return memo[n]
-    if n <= 2:
-        return 1
     else:
-        memo[n] = fib(n-1) + fib(n-2)
-        return memo[n]
+        if n <= 2:
+            f = 1
+        else:
+            f = fib(n-1) + fib(n-2)
+        memo[n] = f
+        return f
 
 
 # tabulation
-def fib(n):
-    fibs = {}
+def fib2(n):
+    fib = {}
     for k in range(1, n+1):
         if k <= 2:
-            fibs[k] = 1
+            f = 1
         else:
-            fibs[k] = fibs[k-1] + fibs[k-2]
-    return fibs[n]
+            f = fib[k-1] + fib[k-2]
+        fib[k] = f
+    return fib[n]
