@@ -13,7 +13,7 @@ def dfs2(s, a):
     stack = [s]
 
     while stack:
-        u = stack.pop(-1)
+        u = stack.pop()
         for v in a[u]:
             if not visited[v]:
                 visited[v] = True

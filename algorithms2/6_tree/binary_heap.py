@@ -4,7 +4,7 @@ class BinaryHeap:
         self.n = len(a) - 1
 
     def create_heap(self):
-        for i in range(self.n//2, 0, -1):    # (size//2)+1부터는 이파리
+        for i in range(self.n//2, 0, -1):   # (size//2)+1부터는 이파리
             self.downheap(i)
 
     def insert(self, item):

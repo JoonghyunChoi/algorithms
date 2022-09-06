@@ -85,7 +85,7 @@ class BinarySearchTree:
                 return n.right
 
             targetNode = n
-            n = self.get_min_node(targetNode.right)           # 삭제될 노드의 왼쪽 서브트리의 최댓값을 이용하는 방법도 가능
+            n = self.get_min_node(targetNode.right)   # 삭제될 노드의 왼쪽 서브트리의 최댓값을 이용하는 방법도 가능
             n.right = self.delete_min_node(targetNode.right)
             n.left = targetNode.left
         return n

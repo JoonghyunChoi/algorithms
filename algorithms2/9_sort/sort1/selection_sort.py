@@ -1,7 +1,8 @@
 def selection_sort(a):
-    for i in range(0, len(a)-1):
+    n = len(a)
+    for i in range(0, n):
         min_ = i
-        for j in range(i+1, len(a)):
+        for j in range(i+1, n):
             if a[j] < a[min_]:
                 min_ = j
         a[i], a[min_] = a[min_], a[i]

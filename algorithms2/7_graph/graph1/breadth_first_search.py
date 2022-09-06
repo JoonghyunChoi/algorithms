@@ -15,15 +15,3 @@ def bfs(s, a):
                 distance[v] = distance[u] + 1
                 previous[v] = u
                 queue.append(v)
-
-
-def bfs2(q):
-    if not q:
-        return
-
-    u = q.pop(0)
-    for v in a[u]:
-        if not visited[v]:
-            visited[v] = True
-            q.append(v)
-    bfs2(q)
