@@ -17,8 +17,7 @@ def fib2(n):
     fib = {}
     for k in range(1, n+1):
         if k <= 2:
-            f = 1
+            fib[k] = 1
         else:
-            f = fib[k-1] + fib[k-2]
-        fib[k] = f
+            fib[k] = fib[k-1] + fib[k-2]
     return fib[n]

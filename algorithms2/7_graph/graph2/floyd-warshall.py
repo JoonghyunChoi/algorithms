@@ -1,8 +1,7 @@
 def floyd_warshall(a):
-    N = len(a)
-    for k in range(N):
-        for i in range(N):
-            for j in range(N):
-                if a[i][j] > a[i][k] + a[k][j]:
-                    a[i][j] = a[i][k] + a[k][j]
+    n = len(a)
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                a[i][j] = min(a[i][j], a[i][k]+a[k][j])
     return a
