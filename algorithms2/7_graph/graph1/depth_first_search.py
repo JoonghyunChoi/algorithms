@@ -1,16 +1,18 @@
+global a, visited
 a = []
 visited = [False] * len(a)
 
-def dfs(u, a):
+def dfs(u):
     visited[u] = True
+
     for v in a[u]:
         if not visited[v]:
-            dfs(v, a)
+            dfs(v)
 
 
-def dfs2(s, a):
-    visited[s] = True
-    stack = [s]
+def dfs(u):
+    visited[u] = True
+    stack = [u]
 
     while stack:
         u = stack.pop()

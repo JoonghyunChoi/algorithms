@@ -9,83 +9,85 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    def get(self, key):
-        return self.get_item(self.root, key)
 
-    def get_item(self, n, key):
-        if n == None:
+    def get(self, key):
+        return self._get(self.root, key)
+
+    def _get(self, n, key):
+        if not n:
             return None
         if n.key > key:
-            return self.get_item(n.left, key)
+            return self._get(n.left, key)
         elif n.key < key:
-            return self.get_item(n.right, key)
+            return self._get(n.right, key)
         else:
             return n.value
 
     def put(self, key, value):
-        self.root = self.put_item(self.root, key, value)
+        self.root = self._put(self.root, key, value)
 
-    def put_item(self, n, key, value):
-        if n == None:
+    def _put(self, n, key, value):
+        if not n:
             return self.Node(key, value)
         if n.key > key:
-            n.left = self.put_item(n.left, key, value)
+            n.left = self._put(n.left, key, value)
         elif n.key < key:
-            n.right = self.put_item(n.right, key, value)
+            n.right = self._put(n.right, key, value)
         else:
             n.value = value
         return n
 
-    def get_min(self):
-        if self.root == None:
-            return None
-        return self.get_min_node(self.root)
 
-    def get_min_node(self, n):
-        if n.left == None:
+    def get_min(self):
+        if not self.root:
+            return None
+        return self._get_min(self.root)
+
+    def _get_min(self, n):
+        if not n.left:
             return n
-        return self.get_min_node(n.left)
+        return self._get_min(n.left)
 
     def get_max(self):
-        if self.root == None:
+        if not self.root:
             return None
-        return self.get_max_node(self.root)
+        return self._get_max(self.root)
 
-    def get_max_node(self, n):
-        if n.right == None:
+    def _get_max(self, n):
+        if not n.right:
             return n
-        return self.get_max_node(n.right)
+        return self._get_max(n.right)
 
 
     def delete_min(self):
-        if self.root == None:
+        if not self.root:
             return -1
-        self.root = self.delete_min_node(self.root)
+        self.root = self._delete_min(self.root)
 
-    def delete_min_node(self, n):
-        if n.left == None:
+    def _delete_min(self, n):
+        if not n.left:
             return n.right
-        n.left = self.delete_min_node(n.left)
+        n.left = self._delete_min(n.left)
         return n
 
     def delete(self, key):
-        self.root = self.delete_node(self.root, key)
+        self.root = self._delete(self.root, key)
 
-    def delete_node(self, n, key):
-        if n == None:
+    def _delete(self, n, key):
+        if not n:
             return None
         if n.key > key:
-            n.left = self.delete_node(n.left, key)
+            n.left = self._delete(n.left, key)
         elif n.key < key:
-            n.right = self.delete_node(n.right, key)
+            n.right = self._delete(n.right, key)
         else:
-            if n.right == None:
+            if not n.right:
                 return n.left
-            if n.left == None:
+            if not n.left:
                 return n.right
 
-            targetNode = n
-            n = self.get_min_node(targetNode.right)   # 삭제될 노드의 왼쪽 서브트리의 최댓값을 이용하는 방법도 가능
-            n.right = self.delete_min_node(targetNode.right)
-            n.left = targetNode.left
+            removal_target = n
+            n = self._get_min(removal_target.right)
+            n.right = self._delete_min(removal_target.right)
+            n.left = removal_target.left
         return n

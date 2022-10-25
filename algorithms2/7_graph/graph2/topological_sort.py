@@ -1,22 +1,30 @@
-def topological_sort1(s, a):
-    visited = [False] * len(a)
+# backward direction
+def topological_sort(a):
+    n = len(a)
+    visited = [False] * n
     b = []
 
-    def dfs(u):
+    def dfs(u, b):
         visited[u] = True
+
         for v in a[u]:
             if not visited[v]:
-                dfs(v)
+                dfs(v, b)
         b.append(u)
-    dfs(s)
-    b.reverse()
-    return b
+
+    for i in range(n):
+        if not visited[i]:
+            dfs(i, b)
+    return b[::-1]
 
 
-def topological_sort2(a, indegree):
+# forward direction
+def topological_sort(a):
+    n = len(a)
     queue = []
+    indegree = []
     b = []
-    for u in range(len(a)+1):
+    for u in range(n):
         if indegree[u] == 0:
             queue.append(u)
 

@@ -36,14 +36,3 @@ class CircularLinkedList:
 
     def get_size(self):
         return self.size
-
-    def print_all(self):
-        if self.size == 0:
-            return -1
-        else:
-            f = self.last.next
-            p = f
-            while p.next != f:
-                print(p.item, end=' ')
-                p = p.next
-            print(p.item)

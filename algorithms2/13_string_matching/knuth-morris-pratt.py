@@ -12,7 +12,7 @@ def kmp(text, pattern):
                 LPS[i] = j
         return LPS
 
-    def kmp_():
+    def _kmp():
         n, m = len(text), len(pattern)
         result = []
         LPS = lps(pattern)
@@ -28,4 +28,4 @@ def kmp(text, pattern):
                 else:
                     j += 1
         return result
-    return kmp_()
+    return _kmp()

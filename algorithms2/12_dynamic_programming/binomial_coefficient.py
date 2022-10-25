@@ -1,4 +1,4 @@
-def bin_coefficient(n, k):
+def bi_coefficient(n, k):
 	dp = [[0]*(k+1) for _ in range(n+1)]
 
 	for i in range(n+1):

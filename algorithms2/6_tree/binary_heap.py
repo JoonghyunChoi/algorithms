@@ -1,27 +1,27 @@
 class BinaryHeap:
     def __init__(self, a):
         self.a = a
-        self.n = len(a) - 1
+        self.n = len(a)-1
 
     def create_heap(self):
-        for i in range(self.n//2, 0, -1):   # (size//2)+1부터는 이파리
+        for i in range(self.n//2, 0, -1):   # root index = 1, (n//2)+1부터 leaf
             self.downheap(i)
 
-    def insert(self, item):
+    def insert(self, x):
         self.n += 1
-        self.a.append(item)
+        self.a.append(x)
         self.upheap(self.n)
 
     def delete_min(self):
         if self.n == 0:
             return None
-        min_ = self.a[1]
+        m = self.a[1]
         self.a[1], self.a[-1] = self.a[-1], self.a[1]
 
         del self.a[-1]
         self.n -= 1
         self.downheap(1)
-        return min_
+        return m
 
     def downheap(self, p):
         while 2 * p <= self.n:

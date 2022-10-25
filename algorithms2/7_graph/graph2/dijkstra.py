@@ -1,40 +1,41 @@
-import sys
 import heapq
 
 def dijkstra(s, a):
-    N = len(a)
-    visited = [False] * N
-    d = [sys.maxsize] * N
+    n = len(a)
+    visited = [False] * n
+    inf = float('inf')
+    d = [inf] * n
     d[s] = 0
     previous = {s: s}
 
-    for _ in range(N):
-        m = -1
-        min_ = sys.maxsize
-        for i in range(N):
-            if not visited[i] and d[i] < min_:
-                min_ = d[i]
-                m = i
-        visited[m] = True
+    for _ in range(n):
+        u = -1
+        m = inf
+        for i in range(n):
+            if not visited[i] and d[i] < m:
+                m = d[i]
+                u = i
+        visited[u] = True  # u is in SP
 
-        for u, w in a[m]:
-            if not visited[u]:
-                if d[m] + w < d[u]:
-                    d[u] = d[m] + w
-                    previous[u] = m
-
-
-def dijkstra2(s, a):
-    d = [sys.maxsize] * len(a)
-    d[s] = 0
-    previous = {s: s}
-    queue = []
-    heapq.heappush(queue, (d[s], s))
-
-    while queue:
-        d_u, u = heapq.heappop(queue)
         for v, w in a[u]:
-            if d_u + w < d[v]:
-                d[v] = d_u + w
+            if not visited[v] and d[u] + w < d[v]:
+                d[v] = d[u] + w
                 previous[v] = u
-                heapq.heappush(queue, (d[v], v))
+
+
+def dijkstra(s, a):
+    n = len(a)
+    inf = float('inf')
+    d = [inf] * n
+    d[s] = 0
+    previous = {s: s}
+    heap = []
+    heapq.heappush(heap, (d[s], s))
+
+    while heap:
+        _, u = heapq.heappop(heap)
+        for v, w in a[u]:
+            if d[u] + w < d[v]:
+                d[v] = d[u] + w
+                previous[v] = u
+                heapq.heappush(heap, (d[v], v))

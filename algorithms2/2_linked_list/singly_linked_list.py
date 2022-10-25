@@ -8,6 +8,7 @@ class SinglyLinkedList:
         self.head = None
         self.size = 0
 
+
     def insert_front(self, item):
         if self.size == 0:
             self.head = self.Node(item, None)
@@ -18,6 +19,7 @@ class SinglyLinkedList:
     def insert_after(self, item, prev):
         prev.next = self.Node(item, prev.next)
         self.size += 1
+
 
     def delete_front(self):
         if self.size == 0:
@@ -33,7 +35,8 @@ class SinglyLinkedList:
         prev.next = t.next
         self.size -= 1
 
-    def search(self, target):
+
+    def get(self, target):
         p = self.head
         for k in range(self.size):
             if target == p.item:
@@ -43,12 +46,3 @@ class SinglyLinkedList:
 
     def get_size(self):
         return self.size
-
-    def print_all(self):
-        p = self.head
-        while p:
-            if p.next != None:
-                print(p.item, end=' ')
-            else:
-                print(p.item)
-            p = p.next

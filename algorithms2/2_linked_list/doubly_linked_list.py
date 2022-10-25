@@ -36,14 +36,3 @@ class DoublyLinkedList:
 
     def get_size(self):
         return self.size
-
-    def print_all(self):
-        if self.size == 0:
-            return -1
-        p = self.head.next
-        while p != self.tail:
-            if p.next != self.tail:
-                print(p.item, end=' ')
-            else:
-                print(p.item)
-            p = p.next

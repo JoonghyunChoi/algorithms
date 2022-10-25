@@ -1,6 +1,6 @@
 def heap_sort(a):
     def create_heap(a):
-        n = len(a) - 1
+        n = len(a)-1
         for i in range(n//2, 0, -1):
             downheap(i, n, a)
 
@@ -14,13 +14,13 @@ def heap_sort(a):
             a[p], a[c] = a[c], a[p]
             p = c
 
-    def heap_sort_(a):
+    def _heap_sort(a):
         create_heap(a)
 
-        n = len(a) - 1
+        n = len(a)-1
         for i in range(n):
             a[1], a[n] = a[n], a[1]
             downheap(1, n-1, a)
             n -= 1
         return a
-    return heap_sort_(a)
+    return _heap_sort(a)

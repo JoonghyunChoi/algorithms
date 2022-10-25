@@ -1,44 +1,38 @@
 class LinearProbing:
     def __init__(self, size):
         self.size = size
-        self.hashTable = [None] * size
-        self.dataTable = [None] * size
+        self.hash_table = [None] * size
+        self.data_table = [None] * size
 
     def hash(self, key):
         return key % self.size
 
-    def put(self, key, item):
-        h = self.hash(key)
-        i = h
-        j = 0
+    def put(self, key, value):
+        h0 = self.hash(key)
+        h = h0
+        i = 0
         while True:
-            if self.hashTable[i] == None:
-                self.hashTable[i] = key
-                self.dataTable[i] = item
+            if not self.hash_table[h]:
+                self.hash_table[h] = key
+                self.data_table[h] = value
                 return
-            if self.hashTable[i] == key:
-                self.dataTable[i] = item
+            if self.hash_table[h] == key:
+                self.data_table[h] = value
                 return
-            j += 1
-            i = (h + j) % self.size
-            if i == h:
+            i += 1
+            h = (h0 + i) % self.size
+            if h == h0:
                 break
 
     def get(self, key):
-        h = self.hash(key)
-        i = h
-        j = 0
-        while self.hashTable[i] != None:
-            if self.hashTable[i] == key:
-                return self.dataTable[i]
-            j += 1
-            i = (h + j) % self.size
-            if i == h:
+        h0 = self.hash(key)
+        h = h0
+        i = 0
+        while self.hash_table[h]:
+            if self.hash_table[h] == key:
+                return self.data_table[h]
+            i += 1
+            h = (h0 + i) % self.size
+            if h == h0:
                 return None
         return None
-
-    # def delete()
-
-    def print_all(self):
-        for i in range(self.size):
-            print(i, self.hashTable[i])
