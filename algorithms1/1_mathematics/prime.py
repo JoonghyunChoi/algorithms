@@ -10,6 +10,15 @@ def divisor(n):
     return result
 
 
+def primality_test(n):
+    i = 2
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+
 def prime(n):
     sieve = [True] * (n+1)
     sieve[0] = sieve[1] = False

@@ -1,6 +1,7 @@
-global b, n, used, perms
-a, b = [], []
+global n, b, used, perms
+a = []
 n = len(a)
+b = []
 used = [False] * n
 perms = []
 
@@ -11,8 +12,8 @@ def perm1(a, k):
 
     for i in range(n):
         if not used[i]:
-            used[i] = True
             b.append(a[i])
+            used[i] = True
             perm1(a, k)
             b.pop()
             used[i] = False

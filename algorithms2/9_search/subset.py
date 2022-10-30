@@ -1,14 +1,15 @@
-global b, n, subsets
-a, b = [], []
+global n, b, subsets
+a = []
 n = len(a)
+b = []
 subsets = []
 
-def subset(a, s):
-    if s == n:
+def subset(a, idx):
+    if idx == n:
         subsets.append(b[:])
         return
 
-    b.append(a[s])
-    subset(a, s+1)
+    b.append(a[idx])
+    subset(a, idx+1)
     b.pop()
-    subset(a, s+1)
+    subset(a, idx+1)

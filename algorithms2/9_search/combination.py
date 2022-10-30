@@ -1,29 +1,30 @@
-global b, n, used, combs
-a, b = [], []
+global n, b, used, combs
+a = []
 n = len(a)
+b = []
 used = [False] * n
 combs = []
 
-def comb1(a, k, s):
+def comb1(a, idx, k):
     if len(b) == k:
         combs.append(b[:])
         return
 
-    for i in range(s, n):
+    for i in range(idx, n):
         if not used[i]:
-            used[i] = True
             b.append(a[i])
-            comb1(a, k, i+1)
+            used[i] = True
+            comb1(a, i+1, k)
             b.pop()
             used[i] = False
 
 
-def comb2(a, k, s):
+def comb2(a, idx, k):
     if len(b) == k:
         combs.append(b[:])
         return
 
-    for i in range(s, n):
+    for i in range(idx, n):
         b.append(a[i])
-        comb2(a, k, i)
+        comb2(a, i, k)
         b.pop()
