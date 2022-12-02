@@ -21,7 +21,7 @@ def dfs(u, parent):
 	visited[u] = True
 
 	for v in a[u]:
-		if visited[v] and parent != v:
+		if visited[v] and v != parent:
 			return True
 		if not visited[v] and dfs(v, u):
 			return True

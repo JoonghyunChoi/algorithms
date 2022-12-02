@@ -24,6 +24,7 @@ def topological_sort(a):
     queue = []
     indegree = []
     b = []
+
     for u in range(n):
         if indegree[u] == 0:
             queue.append(u)
